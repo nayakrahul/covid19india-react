@@ -3911,7 +3911,6 @@ footer {
   margin-left: 5rem;
   padding: 2rem;
 
-
   .cards {
     display: flex;
     flex-wrap: wrap;
@@ -3954,75 +3953,84 @@ footer {
           margin-top: 5px;
 
           .chart-button {
-            position: relative;
-            width: 74px;
+            border-radius: 100px;
             height: 36px;
             margin: -20px auto 0;
             overflow: hidden;
-            border-radius: 100px;
+            position: relative;
+            width: 74px;
 
             .knobs {
-              position: absolute;
-              top: 0;
-              right: 0;
               bottom: 0;
               left: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
               z-index: 2;
             }
 
             .layer {
-              @extend %knobs;
-              width: 100%;
+              @extend .knobs;
               background-color: #4c75f210;
-              transition: 0.3s ease all;
-              z-index: 1;
               border-radius: 100px;
+              transition: .3s ease all;
+              width: 100%;
+              z-index: 1;
             }
 
             .checkbox {
-              position: relative;
-              width: 100%;
+              cursor: pointer;
               height: 100%;
-              padding: 0;
               margin: 0;
               opacity: 0;
-              cursor: pointer;
+              padding: 0;
+              position: relative;
+              width: 100%;
               z-index: 3;
             }
           }
 
           #chart-button {
-            .knobs:before {
-              content: '';
-              position: absolute;
-              top: 4px;
-              left: 4px;
-              width: 20px;
-              height: 10px;
-              color: #fff;
-              font-size: 10px;
-              font-weight: bold;
-              text-align: center;
-              line-height: 1;
-              padding: 9px 4px;
-              background-color: #4c75f2;
-              border-radius: 50%;
-              transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+            .knobs {
+              &::before {
+                background-color: #4c75f2;
+                border-radius: 50%;
+                color: #fff;
+                content: '';
+                font-size: 10px;
+                font-weight: bold;
+                height: 10px;
+                left: 4px;
+                line-height: 1;
+                padding: 9px 4px;
+                position: absolute;
+                text-align: center;
+                top: 4px;
+                transition: .3s cubic-bezier(.18, .89, .35, 1.15) all;
+                width: 20px;
+              }
             }
 
-            .checkbox:checked + .knobs:before {
-              content: '';
-              left: 42px;
-              background-color: #f44336;
+            .checkbox {
+              &:checked {
+                & + .knobs {
+                  &::before {
+                    background-color: #f44336;
+                    content: '';
+                    left: 42px;
+                  }
+                }
+
+                & ~ .layer {
+                  background-color: #f4433610;
+                }
+              }
             }
 
-            .checkbox:checked ~ .layer {
-              background-color: #f4433610;
+            .layer {
+              transition: .3s ease all;
             }
-
-           .knobs:before, #button .layer {
-              transition: 0.3s ease all;
-            }
+          }
         }
       }
     }

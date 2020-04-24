@@ -171,7 +171,11 @@ function AllStatesChart(props) {
         <Line data={dataset} options={options} ref={chartReference} />
       </div>
       <div className="chart-note" style={{marginTop: '0px', height: '30px'}}>
-        <button onClick={toggleSelection}>Toggle Selection</button>
+        <div className="chart-button" id="chart-button">
+          <input type="checkbox" className="checkbox" onChange={toggleSelection}/>
+          <div className="knobs"></div>
+          <div className="layer"></div>
+        </div>
       </div>
     </div>
   );

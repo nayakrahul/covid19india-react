@@ -98,7 +98,7 @@ function Row(props) {
       <tr
         className={`state ${props.total ? 'is-total' : ''} ${
           props.index % 2 === 0 ? 'is-odd' : ''
-        } ${props.isHighlighted ? 'is-highlighted' : ''}`}
+        }`}
         onMouseEnter={() => props.onHighlightState?.(state, props.index)}
         onMouseLeave={() => props.onHighlightState?.()}
         onClick={!props.total ? handleReveal : null}
@@ -275,11 +275,7 @@ function Row(props) {
               return (
                 <tr
                   key={index}
-                  className={`district ${index % 2 === 0 ? 'is-odd' : ''} ${
-                    props.highlightedDistrict === district
-                      ? 'is-highlighted'
-                      : ''
-                  }`}
+                  className={`district ${index % 2 === 0 ? 'is-odd' : ''}`}
                   style={{
                     background: index % 2 === 0 ? '#f8f9fa' : '',
                   }}

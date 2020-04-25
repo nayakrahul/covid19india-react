@@ -123,7 +123,6 @@ function MapExplorer({
         setPanelRegion(panelRegion);
         currentHoveredRegion.statecode = panelRegion.statecode;
         setCurrentHoveredRegion(currentHoveredRegion);
-        panelRegion.districtName = currentHoveredRegion.name;
         if (onMapHighlightChange) onMapHighlightChange(panelRegion);
       }
     },

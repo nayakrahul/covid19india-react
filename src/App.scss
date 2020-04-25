@@ -1545,12 +1545,9 @@ table {
     tr {
       cursor: pointer;
 
-      &.is-highlighted {
-        background: $gray-hover !important;
-      }
-
       &:hover {
         background: $gray-hover !important;
+
 
         .dropdown {
           background: $gray-hover;
